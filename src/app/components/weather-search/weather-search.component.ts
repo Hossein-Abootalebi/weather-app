@@ -29,6 +29,7 @@ export class WeatherSearchComponent implements OnInit {
   city:string='';
   date:any;
   weatherInfo:weather[] = []
+  todayDate:any
 
   // Default weather set on london
 
@@ -38,6 +39,7 @@ export class WeatherSearchComponent implements OnInit {
 
   ngOnInit(): void {
      this.date = formatDate(new Date(), 'yyyy/MM/dd', 'en')
+    this.todayDate = new Date(this.date).getDate()
 
     // Default
     this.searchWeather(44418,this.date)
@@ -62,7 +64,7 @@ export class WeatherSearchComponent implements OnInit {
   searchWeather(id:number,date:string){
     this.service.search(id,date).subscribe((response:any)=>{
       console.log(response)
-      this.weatherInfo = response.filter((item:any) =>new Date( item.created).getUTCDate() == 12 )
+      this.weatherInfo = response.filter((item:any) =>new Date( item.created).getUTCDate() == this.todayDate )
       this.weatherInfo = this.weatherInfo.map((item:any)=>{
         return {
           weather_name: item.weather_state_name,
