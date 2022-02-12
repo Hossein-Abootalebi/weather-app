@@ -26,7 +26,7 @@ export interface weather {
 
 export class WeatherSearchComponent implements OnInit {
 
-  city:string='';
+  city:string='london';
   date:any;
   weatherInfo:weather[] = []
   todayDate:any
