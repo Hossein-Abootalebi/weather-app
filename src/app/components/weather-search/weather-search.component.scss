@@ -143,10 +143,12 @@
 
   .details {
     width: 170px;
+    height: 100%;
 
     .wind-parent {
       display: flex;
       justify-content: end;
+      margin-top: 35px;
 
       .wind-speed {
         width: 50px;
