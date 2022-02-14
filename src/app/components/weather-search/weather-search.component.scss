@@ -126,6 +126,10 @@
       display: flex;
       align-items: baseline;
       justify-content: space-between;
+
+      h2{
+        min-width: 65px;
+      }
     }
 
     .tem-now {
